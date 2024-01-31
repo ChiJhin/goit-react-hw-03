@@ -30,7 +30,10 @@ const ContactForm = ({ onAddContact }) => {
       onSubmit={(values, actions) => {
         const newContact = {
           id: nanoid(),
-          name: values.name.replace(/\b\w/g, (l) => l.toUpperCase()),
+          name: values.name
+            .split(" ")
+            .map((value) => value[0].toUpperCase() + value.slice(1))
+            .join(" "),
           number: values.number,
         };
 
