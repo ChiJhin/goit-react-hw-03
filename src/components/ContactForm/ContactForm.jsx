@@ -31,8 +31,13 @@ const ContactForm = ({ onAddContact }) => {
         const newContact = {
           id: nanoid(),
           name: values.name
+            .trim()
             .split(" ")
-            .map((value) => value[0].toUpperCase() + value.slice(1))
+            .map((value) =>
+              value[1]
+                ? value[0].toUpperCase() + value.slice(1)
+                : value.toUpperCase()
+            )
             .join(" "),
           number: values.number,
         };
