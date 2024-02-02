@@ -35,7 +35,7 @@ const ContactForm = ({ onAddContact }) => {
             .split(" ")
             .map((value) =>
               value[1]
-                ? value[0].toUpperCase() + value.slice(1)
+                ? value[0].toUpperCase() + value.slice(1).toLowerCase()
                 : value.toUpperCase()
             )
             .join(" "),
